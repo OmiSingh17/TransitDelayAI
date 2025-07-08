@@ -205,3 +205,20 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# ---------------------------------------
+# 👇 Additional Rules for TransitDelayAI
+# ---------------------------------------
+
+# Output files/logs
+/output/
+*.log
+
+# Optional: Ignore static GTFS files if too large/private
+# /data/*.txt
+
+# Ollama model configs/cache
+.ollama/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
