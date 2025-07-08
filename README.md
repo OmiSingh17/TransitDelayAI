@@ -39,23 +39,31 @@ All code responses are parsed, verified, and safely executed using `subprocess` 
 ✅ Routes operating after 8 PM on Sundays:
 ['142', '155', '198', '201']
 
-## 🛠 Tech Stack & Tools
+```
+## 🛠️ Tech Stack & Tools
 
-| Area               | Tools/Tech Used                        |
-|--------------------|----------------------------------------|
-| Language           | Python                                 |
-| Data Processing    | pandas, GTFS static files              |
+| Area               | Tools/Tech Used                             |
+|--------------------|---------------------------------------------|
+| Language           | Python                                      |
+| Data Processing    | pandas, GTFS static files                   |
 | GenAI/LLM          | [Ollama](https://ollama.com) + Mistral LLM |
 | Prompt Engineering | Custom system prompts, safe code execution |
-| Folder Structure   | Modular: `utils/`, `data/`, `interface/` |
-| Version Control    | Git + GitHub                           |
+| Folder Structure   | Modular: `utils/`, `data/`, `interface/`    |
+| Version Control    | Git + GitHub                                |
 
+<details>
+<summary>📁 Project Structure</summary>
+
+```bash
 TransitDelayAI/
-├── data/                  # GTFS input files (calendar, trips, stop_times)
-├── utils/                 # Reusable logic modules
+├── data/              # GTFS input files (calendar, trips, stop_times)
+│   ├── calendar.txt
+│   ├── trips.txt
+│   └── stop_times.txt
+├── utils/             # Reusable logic modules
 │   └── sunday_routes.py
-├── Ollama_interface/      # GenAI prompt and response engine
+├── Ollama_interface/  # GenAI prompt + response engine
 │   └── ollama_interface.py
-├── output/                # Optional for charts/logs
-├── main.py                # Clean entry point for running logic
-└── README.md
+├── output/            # Optional output files/logs
+├── main.py            # Clean entry point for running logic
+└── README.md          # This file
