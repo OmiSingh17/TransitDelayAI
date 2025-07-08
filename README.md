@@ -1,47 +1,61 @@
-# TransitDelayAI
+# 🚇 TransitDelayAI
 
-**TransitDelayAI** is a smart, AI-powered tool that analyzes public transit data to detect and explore delays using **GTFS** feeds and **local GenAI (Mistral via Ollama)**.
+> 🧠 “Which routes operate after 8 PM on Sundays?” — Just ask, and AI will code the answer.
 
-This solo-built project blends **Python**, **data analysis**, and **prompt engineering** to create a modular, real-world solution for exploring **late-night public transport service patterns**.
+**TransitDelayAI** is a smart, AI-powered project that analyzes public transit data using GTFS files and natural language queries — no cloud API needed.
 
----
-
-## Key Features
-
-- Analyze GTFS data (`trips.txt`, `calendar.txt`, `stop_times.txt`)
-- Identify routes running after 8 PM on Sundays
-- Use **natural language** to query your data via **local LLMs (Ollama + Mistral)**
-- Modular structure with reusable logic (`utils/`)
-- No paid API needed — 100% local + open-source
-- Designed for clarity, extensibility, and real-world applications
+This project blends **Python**, **data analysis**, and **GenAI (via Ollama + Mistral)** to explore late-night transit behavior, with a modular design built for clarity, reuse, and real-world application.
 
 ---
 
-## Tech Stack & Tools
+## 🔑 Key Features
 
-| Area              | Tools/Tech Used                           |
-|-------------------|--------------------------------------------|
-| Language          | Python                                     |
-| Data Processing   | pandas, GTFS static files                  |
-| GenAI/LLM         | [Ollama](https://ollama.com) + Mistral LLM |
-| Prompt Engineering| Custom system prompts, safe code execution |
-| Folder Structure  | Modular: `utils/`, `data/`, `interface/`   |
-| Version Control   | Git + GitHub                               |
+- ✅ Analyze GTFS data (`trips.txt`, `calendar.txt`, `stop_times.txt`)
+- 🔎 Detect routes operating after 8 PM on Sundays
+- 🗣 Use **natural language** to query data via **local LLMs**
+- 🧱 Modular design with reusable logic in `utils/`
+- 🖥 AI runs **fully offline** with **Ollama + Mistral**
+- 🚀 Ready for future prediction, visualizations & alerts
 
 ---
 
-### How AI Is Used
+## 🤖 How AI Is Used
 
-This project connects to a local Mistral model using Ollama to convert **natural language questions** into working Python code.
+This project uses a **locally running Mistral LLM** via [Ollama](https://ollama.com) to convert natural language questions into working Python code.
 
-**Example prompts you can ask:**
-- "Which routes operate after 8 PM on Sundays?"
-- "Which trip has the longest duration?"
-- "Which route has the most stops on weekdays?"
+### 📦 Example AI Prompts:
+- “Which routes operate after 8 PM on Sundays?” ✅
+- “Which trip has the longest duration?”
+- “Which route has the most stops?”
+- “List trips that don’t run on weekdays”
 
-## Sample Output
+All code responses are parsed, verified, and safely executed using `subprocess` + `re`.
+
+---
+
+## 🖼 Sample Output
 
 ```bash
-Routes operating after 8 PM on Sundays:
+✅ Routes operating after 8 PM on Sundays:
 ['142', '155', '198', '201']
 
+## 🛠 Tech Stack & Tools
+
+| Area               | Tools/Tech Used                        |
+|--------------------|----------------------------------------|
+| Language           | Python                                 |
+| Data Processing    | pandas, GTFS static files              |
+| GenAI/LLM          | [Ollama](https://ollama.com) + Mistral LLM |
+| Prompt Engineering | Custom system prompts, safe code execution |
+| Folder Structure   | Modular: `utils/`, `data/`, `interface/` |
+| Version Control    | Git + GitHub                           |
+
+TransitDelayAI/
+├── data/                  # GTFS input files (calendar, trips, stop_times)
+├── utils/                 # Reusable logic modules
+│   └── sunday_routes.py
+├── Ollama_interface/      # GenAI prompt and response engine
+│   └── ollama_interface.py
+├── output/                # Optional for charts/logs
+├── main.py                # Clean entry point for running logic
+└── README.md
